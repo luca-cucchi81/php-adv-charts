@@ -8,11 +8,11 @@
     </head>
     <body>
 
-        <div class="container">
+        <div class="container line">
             <canvas id="line-chart"></canvas>
         </div>
 
-        <div class="container">
+        <div class="container pie">
             <canvas id="pie-chart"></canvas>
         </div>
 

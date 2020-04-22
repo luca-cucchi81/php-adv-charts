@@ -11,6 +11,10 @@
   }
 
   .container{
-      width: 70%;
-      margin: 50px auto;
+      width: 45vw;
+      margin: 0 auto;
+  }
+
+  .container.line{
+      padding: 40px 0;
   }
