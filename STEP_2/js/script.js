@@ -45,7 +45,12 @@ function getPieChart(torta){
                 borderColor: ['#fff'],
                 borderAlign: 'inner',
                 hoverBackgroundColor: ['rgb(0, 138, 208)','rgb(227, 255, 102)','rgb(255, 64, 0)','rgb(0, 153, 0)'],
-                data: [torta['data']['Marco'], torta['data']['Giuseppe'], torta['data']['Mattia'], torta['data']['Alberto']]
+                data: [
+                    torta['data']['Marco'],
+                    torta['data']['Giuseppe'],
+                    torta['data']['Mattia'],
+                    torta['data']['Alberto']
+                ]
             }],
             labels: [
                 'Marco',
