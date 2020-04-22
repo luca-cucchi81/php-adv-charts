@@ -7,7 +7,7 @@ $.ajax({
         getLineChart(data);
     },
     error: function (error) {
-        alert('Errore nella chimata');
+        alert('Errore nella chiamata');
     }
 });
 
@@ -29,8 +29,6 @@ function getLineChart(data){
         },
     });
 };
-
-
 
 
 });
