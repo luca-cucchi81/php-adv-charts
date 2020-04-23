@@ -5,23 +5,7 @@ $.ajax({
     method: 'GET',
     success: function (graphs) {
         var datiLinea = graphs['fatturato'];
-        var datiTorta = graphs['fatturato_by_agent'];
-        var datiTeam = graphs['team_efficiency'];
-        if ($('.main-container').data('level') == 'guest') {
             getLineChart(datiLinea);
-        }
-        else if ($('.main-container').data('level') == 'employee'){
-            getLineChart(datiLinea);
-            getPieChart(datiTorta);
-        }
-        else if ($('.main-container').data('level') == 'clevel'){
-            getLineChart(datiLinea);
-            getPieChart(datiTorta);
-            getEfficiencyChart(datiTeam);
-        }
-        else{
-            alert('Errore nella chiamata');
-        }
     },
     error: function (error) {
         alert('Errore nella chiamata');
@@ -46,85 +30,5 @@ function getLineChart(data){
         },
     });
 };
-
-// Funzione creazione tabella a torta
-function getPieChart(torta){
-    var ctx = $('#pie-chart');
-    var chart = new Chart(ctx, {
-        type: torta['type'],
-        data: {
-            datasets: [{
-                backgroundColor: ['rgb(0, 138, 208, 0.6)','rgb(227, 255, 102, 0.6)','rgb(255, 64, 0, 0.6)','rgb(0, 153, 0, 0.6)'],
-                borderColor: ['#fff'],
-                borderAlign: 'inner',
-                hoverBackgroundColor: ['rgb(0, 138, 208)','rgb(227, 255, 102)','rgb(255, 64, 0)','rgb(0, 153, 0)'],
-                data: [
-                    torta['data']['Marco'],
-                    torta['data']['Giuseppe'],
-                    torta['data']['Mattia'],
-                    torta['data']['Alberto']
-                ]
-            }],
-            labels: [
-                'Marco',
-                'Giuseppe',
-                'Mattia',
-                'Alberto',
-            ]
-
-        },
-    });
-};
-
-//Funzione creazione tabella lineare per teams
-function getEfficiencyChart(team){
-    var ctx = $('#team-chart');
-    var chart = new Chart(ctx, {
-        type: team['type'],
-        data: {
-            labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-            datasets: [{
-                label: 'Team 1',
-                yAxisID: 'A',
-                backgroundColor: 'rgb(255, 217, 179, 0.5)',
-                borderColor: 'rgb(255, 51, 51)',
-                borderWidth: 4,
-                data: team['data']['Team1']
-            }, {
-                label: 'Team 2',
-                yAxisID: 'B',
-                backgroundColor: 'rgb(255, 217, 179, 0.5)',
-                borderColor: 'rgb(26, 117, 255)',
-                borderWidth: 4,
-                data: team['data']['Team2']
-            }, {
-                label: 'Team 3',
-                yAxisID: 'C',
-                backgroundColor: 'rgb(255, 217, 179, 0.5)',
-                borderColor: 'rgb(57, 172, 57)',
-                borderWidth: 4,
-                data: team['data']['Team3']
-            }]
-        },
-        options: {
-            scales: {
-              yAxes: [{
-                id: 'A',
-                type: 'linear',
-                position: 'left',
-              },
-              {
-                id: 'B',
-                type: 'linear'
-                },
-             {
-                id: 'C',
-                type: 'linear',
-            }]
-            }
-          }
-    });
-};
-
 
 });
