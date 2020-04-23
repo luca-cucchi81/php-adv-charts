@@ -5,13 +5,23 @@ $.ajax({
     method: 'GET',
     success: function (graphs) {
         var datiLinea = graphs['fatturato'];
-        getLineChart(datiLinea);
-
         var datiTorta = graphs['fatturato_by_agent'];
-        getPieChart(datiTorta);
-
         var datiTeam = graphs['team_efficiency'];
-        getEfficiencyChart(datiTeam);
+        if ($('.main-container').data('level') == 'guest') {
+            getLineChart(datiLinea);
+        }
+        else if ($('.main-container').data('level') == 'employee'){
+            getLineChart(datiLinea);
+            getPieChart(datiTorta);
+        }
+        else if ($('.main-container').data('level') == 'clevel'){
+            getLineChart(datiLinea);
+            getPieChart(datiTorta);
+            getEfficiencyChart(datiTeam);
+        }
+        else{
+            alert('Errore nella chiamata');
+        }
     },
     error: function (error) {
         alert('Errore nella chiamata');

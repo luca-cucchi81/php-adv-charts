@@ -7,18 +7,13 @@
         <title>Advance Charts Step_2</title>
     </head>
     <body>
+        <?php $level= $_GET['level']; ?>
+        <div class="main-container" data-level=<?php echo $level; ?>>
+                <canvas id="line-chart"></canvas>
+     
+                <canvas id="pie-chart"></canvas>
 
-
-        <div class="container line">
-            <canvas id="line-chart"></canvas>
-        </div>
-
-        <div class="container pie">
-            <canvas id="pie-chart"></canvas>
-        </div>
-
-        <div class="container line">
-            <canvas id="team-chart"></canvas>
+                <canvas id="team-chart"></canvas>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

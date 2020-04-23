@@ -10,11 +10,15 @@
       clear: both;
   }
 
-  .container{
-      width: 80vw;
+  .main-container{
+      width: 80%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content:flex-start;
       margin: 0 auto;
   }
 
-  .container.line{
-      padding: 40px 0;
+  canvas{
+      width: 20%;
   }
