@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+
+  .container{
+      width: 80vw;
+      margin: 0 auto;
+  }
+
+  .container.line{
+      padding: 40px 0;
+  }
